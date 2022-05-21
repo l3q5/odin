@@ -40,8 +40,8 @@ function playRound(playerSelection, computerSelection){
     }else return "Please enter a valid value.";
 }
 
-function game(){
-    for(let i = 0; i < 5; i++){
+function game(rounds){
+    for(let i = 0; i < rounds; i++){
         const playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
         const computerSelection = computerPlay().toUpperCase();
         console.log("You chose", playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase());
@@ -50,4 +50,4 @@ function game(){
     }
 }
 
-game();
+game(prompt("How many rounds?"));
