@@ -2,13 +2,10 @@ function computerPlay() {
 	switch (Math.floor(Math.random() * 3)) {
 		case 0:
 			return "Rock";
-			break;
 		case 1:
 			return "Paper";
-			break;
 		default:
 			return "Scissors";
-			break;
 	}
 }
 
@@ -17,22 +14,28 @@ function playRound(playerSelection, computerSelection) {
 		if (computerSelection == "ROCK") {
 			return "It's a tie!";
 		} else if (computerSelection == "PAPER") {
+			computerScore++;
 			return "You lose! Paper beats Rock.";
 		} else if (computerSelection == "SCISSORS") {
+			playerScore++;
 			return "You win! Rock beats Scissors.";
 		}
 	} else if (playerSelection == "PAPER") {
 		if (computerSelection == "ROCK") {
+			playerScore++;
 			return "You win! Paper Beats Rock.";
 		} else if (computerSelection == "PAPER") {
 			return "It's a tie!";
 		} else if (computerSelection == "SCISSORS") {
+			computerScore++;
 			return "You lose! Scissors beats Paper.";
 		}
 	} else if (playerSelection == "SCISSORS") {
 		if (computerSelection == "ROCK") {
+			computerScore++;
 			return "You lose! Rock Beats Scissors.";
 		} else if (computerSelection == "PAPER") {
+			playerScore++;
 			return "You win! Scissors beats Paper.";
 		} else if (computerSelection == "SCISSORS") {
 			return "It's a tie!";
@@ -49,6 +52,7 @@ function game(playerSelection) {
 	const paragraph = document.createElement("p");
 	const paragraph2 = document.createElement("p");
 	const paragraph3 = document.createElement("p");
+	const paragraph4 = document.createElement("p");
 	paragraph.textContent =
 		"You chose " +
 		playerSelection.charAt(0).toUpperCase() +
@@ -61,13 +65,35 @@ function game(playerSelection) {
 	container.appendChild(paragraph2);
 	paragraph3.textContent = playRound(playerSelection, computerSelection);
 	container.appendChild(paragraph3);
+	if (playerScore == 5) {
+		playerScore = 0;
+		computerScore = 0;
+		paragraph4.textContent = "You win the game!";
+		container.appendChild(paragraph4);
+	} else if (computerScore == 5) {
+		playerScore = 0;
+		computerScore = 0;
+		paragraph4.textContent = "You lose the game!";
+		container.appendChild(paragraph4);
+	}
+	score.textContent = "Player: " + playerScore;
+	score2.textContent = "Computer: " + computerScore;
 	body.appendChild(container);
 }
+
+let computerScore = 0;
+let playerScore = 0;
 
 const body = document.querySelector("body");
 
 const content = document.createElement("div");
 content.classList.add("content");
+const score = document.createElement("p");
+score.textContent = "Player: " + playerScore;
+content.appendChild(score);
+const score2 = document.createElement("p");
+score2.textContent = "Computer: " + computerScore;
+content.appendChild(score2);
 const buttonrock = document.createElement("button");
 buttonrock.textContent = "Rock";
 buttonrock.addEventListener("click", () => {
