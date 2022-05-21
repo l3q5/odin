@@ -30,16 +30,16 @@ container2.appendChild(br);
 const button = document.createElement("button");
 button.textContent = "Click Me";
 function alertFunction(text) {
-  alert(text);
+	alert(text);
 }
-button.addEventListener('click', () => {
-  alertFunction("bruh");
+button.addEventListener("click", () => {
+	alertFunction("bruh");
 });
 container2.appendChild(button);
 const button2 = document.createElement("button");
 button2.textContent = "Click Me";
 button2.addEventListener("click", function (button) {
-  button.target.style.background = "blue";
+	button.target.style.background = "blue";
 });
 container2.appendChild(button2);
 content.appendChild(container2);
