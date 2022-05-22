@@ -1,0 +1,28 @@
+.topbar {
+	display: flex;
+  justify-content: center;
+}
+
+input {
+  flex-grow:1;
+  margin-right: 10px;
+}
+
+.container {
+	height: 98vh;
+	width: 99vw;
+	display: flex;
+}
+
+.row {
+	display: flex;
+	flex-grow: 1;
+  flex-direction: column;
+}
+
+.col {
+	border: 1px solid black;
+	margin: 2px;
+	padding: 15px;
+	flex-grow: 1;
+}
