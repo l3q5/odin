@@ -35,7 +35,14 @@ function generateGrid(size) {
 	const columns = document.querySelectorAll(".col");
 	columns.forEach((div) => {
 		div.addEventListener("mouseover", function (e) {
-			e.target.style.background = "red";
+			e.target.style.background =
+				"rgb(" +
+				Math.floor(Math.random() * 255) +
+				"," +
+				Math.floor(Math.random() * 255) +
+				"," +
+				Math.floor(Math.random() * 255) +
+				")";
 		});
 	});
 }
